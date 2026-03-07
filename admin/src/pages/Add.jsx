@@ -38,10 +38,10 @@ const app = ({ token }) => {
       image3 && formData.append("image3", image3)
       image4 && formData.append("image4", image4)
 
-      const respose = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
+      const response = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
 
-      if (respose.data.success) {
-        toast.success(respose.data.message)
+      if (response.data.success) {
+        toast.success(response.data.message)
         setName('')
         setDescription('')
         setImage1(false)
@@ -50,12 +50,12 @@ const app = ({ token }) => {
         setImage4(false)
         setPrice('')
       } else {
-        toast.error(Response.data.message)
+        toast.error(response.data.message)
       }
 
     } catch (error) {
       console.log(error);
-      toast.error(error.message )
+      toast.error(error.message)
     }
   }
 
@@ -142,7 +142,7 @@ const app = ({ token }) => {
         <label className='cursor-pointer' htmlFor='bestseller'>Add to Bestseller</label>
       </div>
 
-      <button type="submit" className='w-28 py-3 mt-4 bg-black text-white'>ADD</button>
+      <button type="submit" className='w-28 py-3 mt-4 bg-black text-white cursor-pointer  '>ADD</button>
     </form >
   )
 }
